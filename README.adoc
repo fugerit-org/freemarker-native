@@ -71,5 +71,5 @@ And run :
 
 [source,shell]
 ----
-gradle build publish closeAndReleaseStagingRepository -Pprofile:prod --info
+gradle build publish closeAndReleaseStagingRepository -Pprofile:prod
 ----

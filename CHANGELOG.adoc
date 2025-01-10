@@ -8,6 +8,12 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 === [Unreleased]
 
+=== [0.1.1] - 2025-01-10
+
+==== Fixed
+
+* Setup for publishing to repo sentral
+
 === [0.1.0] - 2025-01-10
 
 ==== Added
