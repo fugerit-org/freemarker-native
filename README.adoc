@@ -62,9 +62,6 @@ Fill the _gradle.properties_ file :
 # OSSRH (Sonatype) credentials
 ossrhUsername=
 ossrhPassword=
-
-# GPG key for signing
-signing.keyId=
 ----
 
 And run :

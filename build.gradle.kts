@@ -91,7 +91,6 @@ nexusPublishing {
 
 when (profile) {
     "prod" -> signing {
-        useInMemoryPgpKeys(findProperty("signing.keyId") as String?, findProperty("signing.secretKey") as String?, findProperty("signing.password") as String?)
         sign(publishing.publications["mavenJava"])
     }
 }
