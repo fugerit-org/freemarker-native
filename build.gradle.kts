@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "org.fugerit.java"
-version = "0.1.1"
+version = "0.1.9"
 
 val freemarkerVersion = "2.3.34"
 val graalSdkVersion = "24.1.1"
@@ -38,39 +38,33 @@ object Meta {
 
 publishing {
     publications {
-
-        when (profile) {
-            "prod" -> create<MavenPublication>("mavenJava") {
-                from(components["java"])
-                pom {
-                    name.set("Freemarker Native")
-                    description.set(Meta.desc)
-                    url.set("https://github.com/${Meta.githubRepo}")
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                        }
-                    }
-                    developers {
-                        developer {
-                            id.set("fugerit79")
-                            name.set("Matteo Franci a.k.a. Fugerit")
-                            email.set("m@fugerit.org")
-                            url.set("https://github.com/fugerit79")
-                            organization.set("Fugerit")
-                            organizationUrl.set("https://github.com/fugerit-org")
-                        }
-                    }
-                    scm {
-                        connection.set("scm:git:git://github.com/your-repo/freemarker-native.git")
-                        developerConnection.set("scm:git:ssh://github.com/your-repo/freemarker-native.git")
-                        url.set("https://github.com/your-repo/freemarker-native")
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            pom {
+                name.set("Freemarker Native")
+                description.set(Meta.desc)
+                url.set("https://github.com/${Meta.githubRepo}")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
                     }
                 }
-            }
-            else -> create<MavenPublication>("mavenJava") {
-                from(components["java"])
+                developers {
+                    developer {
+                        id.set("fugerit79")
+                        name.set("Matteo Franci a.k.a. Fugerit")
+                        email.set("m@fugerit.org")
+                        url.set("https://github.com/fugerit79")
+                        organization.set("Fugerit")
+                        organizationUrl.set("https://github.com/fugerit-org")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/your-repo/freemarker-native.git")
+                    developerConnection.set("scm:git:ssh://github.com/your-repo/freemarker-native.git")
+                    url.set("https://github.com/your-repo/freemarker-native")
+                }
             }
         }
     }
@@ -79,8 +73,8 @@ publishing {
 nexusPublishing {
     repositories {
         sonatype {
-            val ossrhUsername = providers.gradleProperty("ossrhUsername")
-            val ossrhPassword = providers.gradleProperty("ossrhPassword")
+            val ossrhUsername = providers.environmentVariable("MAVEN_USERNAME")
+            val ossrhPassword = providers.environmentVariable("MAVEN_PASSWORD")
             if (ossrhUsername.isPresent && ossrhPassword.isPresent) {
                 username.set(ossrhUsername.get())
                 password.set(ossrhPassword.get())
@@ -89,9 +83,8 @@ nexusPublishing {
     }
 }
 
-when (profile) {
-    "prod" -> signing {
-        sign(publishing.publications["mavenJava"])
-    }
+signing {
+    useGpgCmd()
+    sign(publishing.publications["mavenJava"])
 }
 

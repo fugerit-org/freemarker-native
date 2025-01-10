@@ -8,11 +8,17 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 === [Unreleased]
 
+=== [0.1.9] - 2025-01-11
+
+==== Added
+
+* GitHub gradle publish workflow
+
 === [0.1.1] - 2025-01-10
 
 ==== Fixed
 
-* Setup for publishing to repo sentral
+* Setup for publishing to repo central
 
 === [0.1.0] - 2025-01-10
 
