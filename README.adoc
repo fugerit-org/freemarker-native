@@ -35,3 +35,41 @@ implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion")
 
 NOTE: This implementation is inspired by
 link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker].
+
+== Build
+
+For a local build just run :
+
+[source,shell]
+----
+gradle build
+----
+
+Optionally piblish to local maven repository :
+
+[source,shell]
+----
+gradle build publishToMavenLocal
+----
+
+
+== Publish
+
+Fill the _gradle.properties_ file :
+
+[source,properties]
+----
+# OSSRH (Sonatype) credentials
+ossrhUsername=
+ossrhPassword=
+
+# GPG key for signing
+signing.keyId=
+----
+
+And run :
+
+[source,shell]
+----
+gradle build publish closeAndReleaseStagingRepository -Pprofile:prod --info
+----
