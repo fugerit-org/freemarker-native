@@ -1,0 +1,37 @@
+= freemarker-native
+
+link:https://www.graalvm.org/[GraalVM] support for
+link:https://freemarker.apache.org/[Apache Freemarker].
+
+link:CHANGELOG.md[image:https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735[Keep
+a Changelog v1.1.0 badge]]
+
+https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/run%20on-java%2011+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+runtime version]]
+https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/build%20on-java%2011+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+build version]]
+https://universe.fugerit.org/src/docs/versions/maven3_9.html[image:https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white[Apache
+Maven]]
+
+== Quickstart
+
+Just add link:https://maven.apache.org/[maven] dependency :
+
+[source,xml]
+----
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>freemarker-native</artifactId>
+      <version>${freemarkerNativeVersion}</version>
+    </dependency>
+----
+
+Or link:https://gradle.org/[gradle] one :
+
+[source,kts]
+----
+implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion")
+----
+
+NOTE: This implementation is inspired by
+link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker].

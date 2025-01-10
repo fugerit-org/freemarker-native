@@ -4,18 +4,23 @@ plugins {
 }
 
 group = "org.fugerit.java"
-version = "1.0.0"
+version = "0.1.0"
+
+val freemarkerVersion = "2.3.34"
+val graalSdkVersion = "24.1.1"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.freemarker:freemarker:2.3.34")
-    compileOnly("org.graalvm.sdk:graal-sdk:24.1.1")
+    implementation("org.freemarker:freemarker:$freemarkerVersion")
+    compileOnly("org.graalvm.sdk:graal-sdk:$graalSdkVersion")
 }
 
 java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
     withSourcesJar()
     withJavadocJar()
 }
