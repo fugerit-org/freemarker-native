@@ -16,6 +16,7 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 * SonarCloud scan
 * CONTRIBUTING.adoc
 * License notice and documentation
+* Special thanks section
 
 === [0.1.9] - 2025-01-11
 

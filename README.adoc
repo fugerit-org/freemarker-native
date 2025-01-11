@@ -3,6 +3,8 @@
 link:https://www.graalvm.org/[GraalVM] support for
 link:https://freemarker.apache.org/[Apache Freemarker].
 
+NOTE: see xref:#what-it-does[What does this project do] for more information.
+
 link:CHANGELOG.md[image:https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735[Keep
 a Changelog v1.1.0 badge]]
 https://central.sonatype.com/artifact/org.fugerit.java/freemarker-native[image:https://img.shields.io/maven-central/v/org.fugerit.java/freemarker-native.svg[Maven
@@ -37,9 +39,6 @@ Or link:https://gradle.org/[gradle] one :
 ----
 implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion")
 ----
-
-NOTE: This implementation is inspired by
-link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker].
 
 === Build
 
@@ -88,3 +87,28 @@ And for link:https://docs.gradle.org/current/userguide/declaring_dependencies.ht
 
 
 NOTE: for Gradle, latest version always wins, so if you want a specific versions maybe you will need to set some exclusions.
+
+[#what-it-does]
+=== What does this project do?
+
+When building with GraalVM a project including link:https://freemarker.apache.org/[Apache FreeMarker], this could lead to errors like :
+
+[source,txt]
+----
+Error: Class initialization of freemarker.ext.jython.JythonWrapper failed. This error is reported at image build time because class freemarker.ext.jython.JythonWrapper is registered for linking at image build time by command line and command line. Use the option
+
+    '--initialize-at-run-time=freemarker.ext.jython.JythonWrapper'
+----
+
+This projects include the necessary link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/resources/META-INF/native-image/org.fugerit.java/freemarker-native/native-image.properties[configuration] and link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/java/org/fugerit/java/freemarkernative/Log4jOverSLF4JTesterSubstitute.java[Method substitution] to have it build properly.
+
+[#special-thanks]
+=== Special thanks
+
+This project is inspired by the
+link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker] extension (1). I want to thank Quarkus and Quarkus FreeMarker teams.
+
+The main development tool I used is link:https://www.jetbrains.com/idea/download/[IntelliJ IDEA Ultimate].
+I want to thank the link:https://www.jetbrains.com/community/opensource/[JetBrains Support for Open-Source Projects program] for providing a license.
+
+NOTE: (1) The main difference between this link:https://github.com/fugerit-org/freemarker-native[FreeMarker native] and link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker] is that with this project there are only the basic dependencies needed to run link:https://freemarker.apache.org/[Apache Freemarker].
