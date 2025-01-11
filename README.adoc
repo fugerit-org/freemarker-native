@@ -5,8 +5,13 @@ link:https://freemarker.apache.org/[Apache Freemarker].
 
 link:CHANGELOG.md[image:https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735[Keep
 a Changelog v1.1.0 badge]]
+https://central.sonatype.com/artifact/org.fugerit.java/freemarker-native[image:https://img.shields.io/maven-central/v/org.fugerit.java/freemarker-native.svg[Maven
+Central]]
+https://opensource.org/licenses/Apache-2.0[image:https://img.shields.io/badge/License-Apache%20License%202.0-teal.svg[license]]
+https://github.com/fugerit-org/fj-universe/blob/main/CODE_OF_CONDUCT.md[image:https://img.shields.io/badge/conduct-Contributor%20Covenant-purple.svg[code
+of conduct]]
 
-https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/run%20on-java%2011+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+https://universe.fugerit.org/src/docs/versions/java8.html[image:https://img.shields.io/badge/run%20on-java%208+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
 runtime version]]
 https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/build%20on-java%2011+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
 build version]]
