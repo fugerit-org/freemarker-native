@@ -1,0 +1,153 @@
+== Add native support to Apache FreeMarker
+
+This section describes how link:https://github.com/fugerit-org/freemarker-native[FreeMarker Native] adds
+link:https://www.graalvm.org/[GraalVM] support for
+link:https://freemarker.apache.org/[Apache Freemarker].
+
+NOTE: Logs in this section have been captured on GraalVM 21.0.5+9.1.
+
+=== Summary
+
+As of Apache FreeMarker 2.3.34 three actions are needed to make it work with GraalVM :
+
+. xref:#JythonWrapper[freemarker.ext.jython.JythonWrapper] - initialize at run time
+. xref:#JythonModel[freemarker.ext.jython.JythonModel] - initialize at run time
+. xref:#Log4jOverSLF4JTester[freemarker.log._Log4jOverSLF4JTester] - substitute method test()
+. add xref:#resource-config[resource-config.json] (1)
+
+NOTE: (1) this is actually not needed with default configuration.
+
+[#JythonWrapper]
+=== Initialize at run time freemarker.ext.jython.JythonWrapper
+
+The GraalVM parameter link:https://www.graalvm.org/21.3/reference-manual/native-image/ClassInitialization/[initialize-at-run-time] :
+
+[source,shell]
+----
+--initialize-at-run-time=freemarker.ext.jython.JythonWrapper
+----
+
+In :
+
+[source,txt]
+----
+META-INF/native-image/org.fugerit.java/freemarker-native/native-image.properties
+----
+
+Is needed to avoid error :
+
+[source,txt]
+----
+Error: Class initialization of freemarker.ext.jython.JythonWrapper failed. This error is reported at image build time because class freemarker.ext.jython.JythonWrapper is registered for linking at image build time by command line and command line. Use the option
+    '--initialize-at-run-time=freemarker.ext.jython.JythonWrapper'
+ to explicitly request initialization of this class at run time.
+com.oracle.svm.core.util.UserError$UserException: Class initialization of freemarker.ext.jython.JythonWrapper failed. This error is reported at image build time because class freemarker.ext.jython.JythonWrapper is registered for linking at image build time by command line and command line. Use the option
+    '--initialize-at-run-time=freemarker.ext.jython.JythonWrapper'
+ to explicitly request initialization of this class at run time.
+----
+
+[#JythonModel]
+=== Initialize at run time freemarker.ext.jython.JythonModel
+
+The GraalVM parameter link:https://www.graalvm.org/21.3/reference-manual/native-image/ClassInitialization/[initialize-at-run-time] :
+
+[source,shell]
+----
+--initialize-at-run-time=freemarker.ext.jython.JythonModel
+----
+
+In :
+
+[source,txt]
+----
+META-INF/native-image/org.fugerit.java/freemarker-native/native-image.properties
+----
+
+Is needed to avoid error :
+
+[source,txt]
+----
+Error: Class initialization of freemarker.ext.jython.JythonModel failed. This error is reported at image build time because class freemarker.ext.jython.JythonModel is registered for linking at image build time by command line and command line. Use the option
+    '--initialize-at-run-time=freemarker.ext.jython.JythonModel'
+ to explicitly request initialization of this class at run time.
+com.oracle.svm.core.util.UserError$UserException: Class initialization of freemarker.ext.jython.JythonModel failed. This error is reported at image build time because class freemarker.ext.jython.JythonModel is registered for linking at image build time by command line and command line. Use the option
+    '--initialize-at-run-time=freemarker.ext.jython.JythonModel'
+ to explicitly request initialization of this class at run time.
+----
+
+[#Log4jOverSLF4JTester]
+=== Substitution for freemarker.log._Log4jOverSLF4JTester
+
+The GraalVM SDK  link:https://www.graalvm.org/sdk/javadoc/com/oracle/svm/core/annotate/Substitute.html[Substitute annotation] :
+
+[source,java]
+----
+@TargetClass(_Log4jOverSLF4JTester.class)
+public final class Log4jOverSLF4JTesterSubstitute {
+
+    private Log4jOverSLF4JTesterSubstitute() {}
+
+    /**
+     * The original method is substituted with a stub returning always false.
+     *
+     * @return always returns false
+     */
+    @Substitute
+    public static final boolean test() {
+        return false;
+    }
+}
+----
+
+Is needed to avoid error :
+
+[source,txt]
+----
+Error: Discovered unresolved type during parsing: org.apache.log4j.MDC. This error is reported at image build time because class freemarker.log._Log4jOverSLF4JTester is registered for linking at image build time by command line and command line.
+
+Error encountered while parsing freemarker.log._Log4jOverSLF4JTester.test(_Log4jOverSLF4JTester.java:35)
+Parsing context:
+   at static root method.(Unknown Source)
+
+Detailed message:
+com.oracle.svm.core.util.UserError$UserException: Discovered unresolved type during parsing: org.apache.log4j.MDC. This error is reported at image build time because class freemarker.log._Log4jOverSLF4JTester is registered for linking at image build time by command line and command line.
+
+Error encountered while parsing freemarker.log._Log4jOverSLF4JTester.test(_Log4jOverSLF4JTester.java:35)
+----
+
+NOTE: This is the only modification requiring Java 11+ (as the @Substitute annotation is required by it); maybe it is possible to completely remove the class _freemarker.log._Log4jOverSLF4JTester_?
+
+[#resource-config]
+=== Add resource-config.json
+
+[source,json]
+----
+{
+  "bundles": [],
+  "resources": {
+    "includes": [
+      {
+        "pattern": "\\Qfreemarker/ext/beans/DefaultMemberAccessPolicy-rules\\E",
+        "condition": {
+          "typeReachable": "freemarker.ext.beans.DefaultMemberAccessPolicy"
+        }
+      },
+      {
+        "pattern": "\\Qfreemarker/version.properties\\E",
+        "condition": {
+          "typeReachable": "freemarker.template.utility.ClassUtil"
+        }
+      }
+    ]
+  }
+}
+----
+
+In :
+
+[source,txt]
+----
+META-INF/native-image/org.fugerit.java/freemarker-native/resource-config.json
+----
+
+NOTE: Without _resource-config.json_ the build would not actually fail, but runtime errors can happen depending on specific configuration.
