@@ -8,6 +8,8 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 === [Unreleased]
 
+=== [1.0.0] - 2025-01-11
+
 ==== Added
 
 * Jacoco test coverage
