@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2025-01-11</date>
+</articleinfo>
+<section id="_1_0_0_2025_01_11">
+<title>[1.0.0] - 2025-01-11</title>
+<section id="_added">
+<title>Added</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Jacoco test coverage
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Test with Junit5
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Change FreeMarker version section in README
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SonarCloud scan
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+CONTRIBUTING.adoc
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+License notice and documentation
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Special thanks section
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+SonarCloud quality gate and coverage badges
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+resource-config.json
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section id="_0_1_9_2025_01_11">
+<title>[0.1.9] - 2025-01-11</title>
+<section id="_added_2">
+<title>Added</title>
+<itemizedlist>
+<listitem>
+<simpara>
+GitHub gradle publish workflow
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section id="_0_1_1_2025_01_10">
+<title>[0.1.1] - 2025-01-10</title>
+<section id="_fixed">
+<title>Fixed</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Setup for publishing to repo central
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section id="_0_1_0_2025_01_10">
+<title>[0.1.0] - 2025-01-10</title>
+<section id="_added_3">
+<title>Added</title>
+<itemizedlist>
+<listitem>
+<simpara>
+GraalVM support for Apache FreeMarker
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+</article>
