@@ -1,0 +1,31 @@
+== Contributing to FreeMarker native
+
+We want to make contributing to this project as easy as possible.
+
+=== Pull Requests
+
+We actively welcome your pull requests and forks.
+
+=== Enhancement
+
+Propose your contribution by either :
+
+[arabic]
+. https://github.com/fugerit-org/freemarker-native/issues/new/choose[Submitting
+your proposal]
+. https://github.com/fugerit-org/freemarker-native/discussions/categories/ideas[Open
+a discussion on your ideas]
+
+Any contribution is accepted (development, testing, dotumentation etc.)
+
+=== Bug fixes
+
+You can use the
+https://github.com/fugerit-org/freemarker-native/issues/new/choose[GitHub issue
+form] to report bugs.
+
+=== License
+
+By contributing to https://github.com/fugerit-org/freemarker-native[FreeMarker Native], you agree that your contributions will be licensed under the
+https://github.com/fugerit-org/freemarker-native/blob/main/LICENSE[LICENSE] file in
+the root directory of this source tree.
