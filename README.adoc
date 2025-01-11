@@ -79,6 +79,8 @@ If a different version is needed, add the Apache FreeMarker dependency before Fr
     </dependency>
 ----
 
+And for link:https://docs.gradle.org/current/userguide/declaring_dependencies.html[Gradle] :
+
 [source,kts]
 ----
 implementation("org.freemarker:freemarker:$freemarkerVersion")
@@ -86,10 +88,13 @@ implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion") {
     exclude("org.freemarker", "freemarker")
 }
 ----
-And for link:https://docs.gradle.org/current/userguide/declaring_dependencies.html[Gradle] :
-
 
 NOTE: for Gradle, latest version always wins, so if you want a specific versions maybe you will need to set some exclusions.
+
+__Tested version of Apache FreeMarker :__
+
+* 2.3.33
+* 2.3.34
 
 [#what-it-does]
 === What does this project do?
