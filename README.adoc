@@ -16,12 +16,13 @@ https://sonarcloud.io/summary/new_code?id=fugerit-org_freemarker-native[image:ht
 Gate Status]]
 https://sonarcloud.io/summary/new_code?id=fugerit-org_freemarker-native[image:https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_freemarker-native&metric=coverage[Coverage]]
 
-https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/run%20on-java%2011+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/run%20on-java%20(not%20native)%208+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
 runtime version]]
-https://universe.fugerit.org/src/docs/versions/java11.html[image:https://img.shields.io/badge/build%20on-java%2011+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+https://universe.fugerit.org/src/docs/versions/java17.html[image:https://img.shields.io/badge/run%20on-GraalVM%2017+-%23991111.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
+runtime version]]
+https://universe.fugerit.org/src/docs/versions/java17.html[image:https://img.shields.io/badge/build%20on-GraalVM%2017+-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
 build version]]
-https://universe.fugerit.org/src/docs/versions/maven3_9.html[image:https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white[Apache
-Maven]]
+https://universe.fugerit.org/src/docs/versions/maven3_9.html[image:https://img.shields.io/badge/Gradle-8.X+-1AC736?style=for-the-badge&logo=Gradle&logoColor=white[Gradle]]
 
 NOTE: Whereas link:https://freemarker.apache.org/[Apache Freemarker] works on Java 8+, native supports requires Java 11+.
 
