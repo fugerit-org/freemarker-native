@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.fugerit.java"
-version = "1.0.0"
+version = "1.0.1-SNAPSHOT"
 
 val freemarkerVersion = "2.3.34"
 val graalSdkVersion = "24.1.1"
