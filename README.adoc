@@ -113,6 +113,8 @@ Error: Class initialization of freemarker.ext.jython.JythonWrapper failed. This 
 
 This projects include the necessary link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/resources/META-INF/native-image/org.fugerit.java/freemarker-native/native-image.properties[configuration] and link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/java/org/fugerit/java/freemarkernative/Log4jOverSLF4JTesterSubstitute.java[Method substitution] to have it build properly.
 
+NOTE: For more information on how native support has beend added read link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/docs/native-support/index.adoc[here].
+
 [#special-thanks]
 === Special thanks
 
