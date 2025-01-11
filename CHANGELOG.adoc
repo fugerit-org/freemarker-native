@@ -17,6 +17,7 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 * CONTRIBUTING.adoc
 * License notice and documentation
 * Special thanks section
+* SonarCloud quality gate and coverage badges
 
 === [0.1.9] - 2025-01-11
 

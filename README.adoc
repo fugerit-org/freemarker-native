@@ -12,6 +12,9 @@ Central]]
 https://opensource.org/licenses/Apache-2.0[image:https://img.shields.io/badge/License-Apache%20License%202.0-teal.svg[license]]
 https://github.com/fugerit-org/fj-universe/blob/main/CODE_OF_CONDUCT.md[image:https://img.shields.io/badge/conduct-Contributor%20Covenant-purple.svg[code
 of conduct]]
+https://sonarcloud.io/summary/new_code?id=fugerit-org_freemarker-native[image:https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_freemarker-native&metric=alert_status[Quality
+Gate Status]]
+https://sonarcloud.io/summary/new_code?id=fugerit-org_freemarker-native[image:https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_freemarker-native&metric=coverage[Coverage]]
 
 https://universe.fugerit.org/src/docs/versions/java8.html[image:https://img.shields.io/badge/run%20on-java%208+-%23113366.svg?style=for-the-badge&logo=openjdk&logoColor=white[Java
 runtime version]]
