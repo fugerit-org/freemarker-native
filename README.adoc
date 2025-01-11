@@ -1,4 +1,4 @@
-= freemarker-native
+== freemarker-native
 
 link:https://www.graalvm.org/[GraalVM] support for
 link:https://freemarker.apache.org/[Apache Freemarker].
@@ -18,7 +18,7 @@ build version]]
 https://universe.fugerit.org/src/docs/versions/maven3_9.html[image:https://img.shields.io/badge/Apache%20Maven-3.9.0+-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white[Apache
 Maven]]
 
-== Quickstart
+=== Quickstart
 
 Just add link:https://maven.apache.org/[maven] dependency :
 
@@ -41,7 +41,7 @@ implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion")
 NOTE: This implementation is inspired by
 link:https://quarkus.io/extensions/io.quarkiverse.freemarker/quarkus-freemarker/[quarkus-freemarker].
 
-== Build
+=== Build
 
 For a local build just run :
 
@@ -56,3 +56,35 @@ Optionally piblish to local maven repository :
 ----
 gradle build publishToMavenLocal
 ----
+
+=== Apache FreeMarker version
+
+FreeMarker Native is currently based on _Apache FreeMarker 2.3.34_.
+
+If a different version is needed, add the Apache FreeMarker dependency before FreeMarker native in link:https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html[Maven] :
+
+[source,xml]
+----
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>${freemarkerVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>freemarker-native</artifactId>
+      <version>${freemarkerNativeVersion}</version>
+    </dependency>
+----
+
+[source,kts]
+----
+implementation("org.freemarker:freemarker:$freemarkerVersion")
+implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion") {
+    exclude("org.freemarker", "freemarker")
+}
+----
+And for link:https://docs.gradle.org/current/userguide/declaring_dependencies.html[Gradle] :
+
+
+NOTE: for Gradle, latest version always wins, so if you want a specific versions maybe you will need to set some exclusions.
