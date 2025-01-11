@@ -8,6 +8,10 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 === [Unreleased]
 
+==== Added
+
+* License notice and documentation
+
 === [0.1.9] - 2025-01-11
 
 ==== Added
