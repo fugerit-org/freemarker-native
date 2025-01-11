@@ -1,5 +1,6 @@
 plugins {
     java
+    jacoco
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
@@ -37,6 +38,20 @@ tasks.test {
     useJUnitPlatform()
     testLogging {
         events("PASSED", "FAILED", "SKIPPED")
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.12"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+        csv.required.set(false)
     }
 }
 

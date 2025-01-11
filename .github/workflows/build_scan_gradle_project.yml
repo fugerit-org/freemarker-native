@@ -24,7 +24,7 @@ jobs:
         distribution: 'graalvm'
         cache: gradle
     - name: Build and scan project
-      run: gradle clean build sonar
+      run: gradle clean build jacocoTestReport sonar
       env:
         # Needed to get some information about the pull request, if any
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
