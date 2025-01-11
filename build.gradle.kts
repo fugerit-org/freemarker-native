@@ -92,7 +92,7 @@ signing {
 sonar {
     properties {
         property("sonar.sourceEncoding", "UTF-8")
-        property("sonar.projectKey", "freemarker-native")
+        property("sonar.projectKey", "fugerit-org_freemarker-native")
         property("sonar.organization", "fugerit-org")
         property("sonar.host.url", "https://sonarcloud.io")
     }
