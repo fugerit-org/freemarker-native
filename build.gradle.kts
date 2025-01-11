@@ -3,6 +3,7 @@ plugins {
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "org.fugerit.java"
@@ -88,3 +89,11 @@ signing {
     sign(publishing.publications["mavenJava"])
 }
 
+sonar {
+    properties {
+        property("sonar.sourceEncoding", "UTF-8")
+        property("sonar.projectKey", "freemarker-native")
+        property("sonar.organization", "fugerit-org")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}

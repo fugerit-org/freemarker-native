@@ -1,0 +1,33 @@
+# CI publish gradle package
+#
+# version 1.0.0
+
+name: CI publish build scan project
+
+on:
+  push:
+    branches:
+    - branch-preview
+    - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: Set up JDK 21
+      uses: actions/setup-java@main
+      with:
+        java-version: '21'
+        distribution: 'graalvm'
+        cache: gradle
+    - name: Build and scan project
+      run: gradle clean build sonar
+      env:
+        # Needed to get some information about the pull request, if any
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
+        # and https://docs.sonarsource.com/sonarqube-cloud/advanced-setup/ci-based-analysis/sonarscanner-for-gradle/
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
