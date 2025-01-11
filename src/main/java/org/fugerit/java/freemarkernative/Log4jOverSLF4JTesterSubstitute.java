@@ -35,6 +35,8 @@ import freemarker.log._Log4jOverSLF4JTester;
 @TargetClass(_Log4jOverSLF4JTester.class)
 public final class Log4jOverSLF4JTesterSubstitute {
 
+    private Log4jOverSLF4JTesterSubstitute() {}
+
     /**
      * The original method is substituted with a stub returning always false.
      *

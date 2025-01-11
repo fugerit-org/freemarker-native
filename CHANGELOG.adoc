@@ -10,6 +10,7 @@ link:https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 
 ==== Added
 
+* Test with Junit5
 * Change FreeMarker version section in README
 * SonarCloud scan
 * CONTRIBUTING.adoc

@@ -11,6 +11,7 @@ version = "0.1.9"
 
 val freemarkerVersion = "2.3.34"
 val graalSdkVersion = "24.1.1"
+val junitJupiterVersion = "5.11.4"
 
 val profile = findProperty("profile") as String? ?: "default"
 
@@ -21,6 +22,8 @@ repositories {
 dependencies {
     implementation("org.freemarker:freemarker:$freemarkerVersion")
     compileOnly("org.graalvm.sdk:graal-sdk:$graalSdkVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
 }
 
 java {
@@ -28,6 +31,13 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
     withSourcesJar()
     withJavadocJar()
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("PASSED", "FAILED", "SKIPPED")
+    }
 }
 
 object Meta {
