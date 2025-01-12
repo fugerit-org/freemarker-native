@@ -46,6 +46,8 @@ Or link:https://gradle.org/[gradle] one :
 implementation("org.fugerit.java:freemarker-native:$freemarkerNativeVersion")
 ----
 
+NOTE: project specific native configuration may still be needed (for instance resource and relfect configuration). Here is an link:https://github.com/fugerit-org/freemarker-native-demo/commit/8550f88a0e781521d6424652694e019d1b24a8b0[example].
+
 === Build
 
 For a local build just run :
@@ -114,6 +116,13 @@ Error: Class initialization of freemarker.ext.jython.JythonWrapper failed. This 
 This projects include the necessary link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/resources/META-INF/native-image/org.fugerit.java/freemarker-native/native-image.properties[configuration] and link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/java/org/fugerit/java/freemarkernative/Log4jOverSLF4JTesterSubstitute.java[Method substitution] to have it build properly.
 
 NOTE: For more information on how native support has beend added read link:https://github.com/fugerit-org/freemarker-native/blob/main/src/main/docs/native-support/index.adoc[here].
+
+[#demo-project]
+=== FreeMarker Native Demo project
+
+A demo project, based on quarkus, is available here :
+
+link:https://github.com/fugerit-org/freemarker-native-demo[https://github.com/fugerit-org/freemarker-native-demo]
 
 [#special-thanks]
 === Special thanks
